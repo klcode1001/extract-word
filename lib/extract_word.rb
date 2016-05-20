@@ -2,13 +2,12 @@ class ExtractWord
   def execute(file_path)
     text = File.read(file_path)
     word_sp = get_word_sp(text)
-    groups = word_sp.partition{|word, _| word.split(/\s/).size > 1 }
+    groups = word_sp.partition{|word, _| !word.count(' ').zero? }
     output_result(*groups)
   end
 
   private
 
-  # 複数の単語で意味をなす英単語を取得するメソッド ex) "Google Play Awards"
   def get_word_sp(text)
     regex = /(?:[A-Z][\w\/’]*(?:\sof|\s[A-Z][\w\/’]*)+|[\w’-]+)/
     text.scan(regex).each_with_object(Hash.new(0)) do |word, word_sp|
