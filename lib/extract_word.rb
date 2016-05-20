@@ -13,8 +13,7 @@ class ExtractWord
     regex = /[A-Z][\w\/’]*(?:\sof|\s[A-Z][\w\/’]*)+/
     word_sp = Hash.new(0)
     processed_text = text.gsub(regex) do |word, hash|
-      word_sp[word] += 1
-      ''
+      word_sp[word] += 1 and ''
     end
     [word_sp, processed_text]
   end
