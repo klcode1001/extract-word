@@ -2,14 +2,20 @@ class ExtractWord
   def execute(file_path)
     text = File.read(file_path)
     words = count_words(text)
-    single_words, compund_words = words.partition { |word, _| word.count(' ').zero? }
-    output_result(single_words, compund_words)
+    single_words, compound_words = words.partition { |word, _| word.count(' ').zero? }
+    output_result(single_words, compound_words)
   end
 
   private
 
   def count_words(text)
-    regex = /(?:[A-Z][\w\/’]*(?:\sof|\s[A-Z][\w\/’]*)+|[\w’-]+)/
+    # 単語の構成文字
+    word_like = '[\w’\/-]'
+    # Google Play Awards や Clash of Kings のような複合語を検索する
+    compound_words = /[A-Z]#{word_like}*(?:\sof|\s[A-Z]#{word_like}*)+/
+    # 英単語を検索する
+    words = /#{word_like}+/
+    regex = Regexp.union(compound_words, words)
     text.scan(regex).each_with_object(Hash.new(0)) do |word, count_table|
       count_table[word] += 1
     end
