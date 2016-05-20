@@ -1,6 +1,6 @@
 class ExtractWord
   def execute(file_path)
-    text = File.open(file_path, 'r').read
+    text = File.read(file_path)
     word_sp, processed_text = get_word_sp(text)
     word = get_word(processed_text)
     output_result(word_sp, word)
