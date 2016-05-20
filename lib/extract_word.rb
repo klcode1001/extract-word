@@ -20,12 +20,9 @@ class ExtractWord
 
   # 通常の英単語
   def get_word(text)
-    word = Hash.new(0)
-    text = text.scan(/[\w’-]+/)
-    text.each do |w|
-      word[w] += 1
+    text.scan(/[\w’-]+/).each_with_object(Hash.new(0)) do |word, hash|
+      hash[word] += 1
     end
-    word
   end
 
   def output_result(word_sp, word)
