@@ -10,26 +10,21 @@ class ExtractWord
 
   # 複数の単語で意味をなす英単語を取得するメソッド ex) "Google Play Awards"
   def get_word_sp(text)
-    word_sp = Hash.new(0)
-    reg2 = /[A-Z][\w\/’]*(?:\sof|\s[A-Z][\w\/’]*)+/
-
-    array =  text.scan(reg2)
-    array.each do |word|
-      word_sp[word] += 1
+    regex = /[A-Z][\w\/’]*(?:\sof|\s[A-Z][\w\/’]*)+/
+    text.scan(regex).each_with_object(Hash.new(0)) do |word, hash|
+      hash[word] += 1
     end
-
-    word_sp
   end
 
   # 通常の英単語
   def get_word(text, word_sp)
     array = text
-    word_sp.sort_by{|s, _| s.split(/\s/).size * -1}.each do |word, frequency|
+    word_sp.keys.sort_by{|s| s.split(/\s/).size * -1}.each do |word|
       array = array.gsub("#{word}", "")
     end
 
     word = Hash.new(0)
-    array = array.split("\s").map{|m| m.gsub(/\.|\”|\,|\n|\“/, "")}
+    array = array.split("\s").map{|m| m.gsub(/[.”,\n“]/, "")}
     array.each do |w|
       word[w] += 1
     end
