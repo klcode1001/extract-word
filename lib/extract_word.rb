@@ -21,7 +21,7 @@ class ExtractWord
   # 通常の英単語
   def get_word(text)
     word = Hash.new(0)
-    text = text.split("\s").map{|m| m.gsub(/[.”,\n“]/, "")}
+    text = text.scan(/[\w’-]+/)
     text.each do |w|
       word[w] += 1
     end
