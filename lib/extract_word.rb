@@ -6,7 +6,7 @@ class ExtractWord
   def execute(file_path)
     text = File.read(file_path)
     words = count_words(text)
-    single_words, compound_words = words.partition { |word, _| word.count(' ').zero? }
+    compound_words, single_words = words.partition { |word, _| word.include?(' ') }
     output_result(single_words, compound_words)
   end
 
