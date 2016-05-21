@@ -16,7 +16,7 @@ class ExtractWord
     # 単語の構成文字
     word_char = '[\w’\/-]'
     # Google Play Awards や Clash of Kings のような複合語を検索する
-    compound_words = /[A-Z]#{word_char}*(?:\sof|\s[A-Z]#{word_char}*)+/
+    compound_words = /[A-Z]#{word_char}*(?: of| [A-Z]#{word_char}*)+/
     # 英単語を検索する
     words = /#{word_char}+/
     # 複合語が優先的に検索されるように正規表現を結合する
