@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require_relative '../lib/extract_word'
 
 class ExtractWordTest < Minitest::Test
-  def test_greeting
+  def test_execute
     assert_output(expected_output) { ExtractWord.execute(input_file_path) }
   end
 
