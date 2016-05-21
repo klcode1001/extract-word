@@ -22,7 +22,7 @@ class ExtractWord
   end
 
   def output_result(single_words, compound_words)
-    word_count = single_words.inject(0) {|sum, (_, count)| sum + count}
+    word_count = single_words.inject(0) { |sum, (_, count)| sum + count }
     puts "単語数（熟語以外）：#{word_count}"
     output_words(compound_words, '英熟語？')
     output_words(single_words, '英単語')
