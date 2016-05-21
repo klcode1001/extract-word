@@ -5,8 +5,7 @@ class ExtractWord
 
   def execute(file_path)
     text = File.read(file_path)
-    words = count_words(text)
-    compound_words, single_words = words.partition { |word, _| word.include?(' ') }
+    compound_words, single_words = count_words(text)
     output_result(single_words, compound_words)
   end
 
@@ -21,13 +20,15 @@ class ExtractWord
     words = /#{word_char}+/
     # 複合語が優先的に検索されるように正規表現を結合する
     regex = Regexp.union(compound_words, words)
-    text.scan(regex).each_with_object(Hash.new(0)) do |word, count_table|
-      count_table[word] += 1
-    end
+    # 検索された複合語や英単語をカウント => ソート => グループ分け
+    text.scan(regex)
+      .each_with_object(Hash.new(0)) { |word, hash| hash[word] += 1 }
+      .sort_by { |word, count| [-count, word.downcase] }
+      .partition { |word, _| word.include?(' ') }
   end
 
   def output_result(single_words, compound_words)
-    word_count = single_words.inject(0) { |sum, (_, count)| sum + count }
+    word_count = single_words.map(&:last).inject(:+)
     puts "単語数（熟語以外）：#{word_count}"
     output_words(compound_words, '英熟語？')
     output_words(single_words, '英単語')
@@ -35,8 +36,7 @@ class ExtractWord
 
   def output_words(count_table, header)
     puts "#{header}------------------------------------------------------------------"
-    sorted_table = count_table.sort_by { |word, count| [-count, word.downcase] }
-    sorted_table.each do |word, count|
+    count_table.each do |word, count|
       puts '%3d %s' % [count, word]
     end
   end
