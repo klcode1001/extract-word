@@ -3,14 +3,12 @@ require_relative '../lib/extract_word'
 
 class ExtractWordTest < Minitest::Test
   def test_greeting
-    extract_word = ExtractWord.new
-    extract_word.execute(file_path)
-    assert_output(expected_output) { extract_word.execute(file_path) }
+    assert_output(expected_output) { ExtractWord.execute(input_file_path) }
   end
 
   private
 
-  def file_path
+  def input_file_path
     File.expand_path('../../test.txt', __FILE__)
   end
 

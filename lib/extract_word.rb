@@ -1,4 +1,8 @@
 class ExtractWord
+  def self.execute(file_path)
+    self.new.execute(file_path)
+  end
+
   def execute(file_path)
     text = File.read(file_path)
     words = count_words(text)
@@ -32,7 +36,7 @@ class ExtractWord
     puts "#{header}------------------------------------------------------------------"
     sorted_table = count_table.sort_by { |word, count| [-count, word.downcase] }
     sorted_table.each do |word, count|
-      puts "%3d %s" % [count, word]
+      puts '%3d %s' % [count, word]
     end
   end
 end
