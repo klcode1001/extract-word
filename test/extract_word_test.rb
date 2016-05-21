@@ -9,7 +9,7 @@ class ExtractWordTest < Minitest::Test
   private
 
   def input_file_path
-    File.expand_path('../../test.txt', __FILE__)
+    File.expand_path('../input.txt', __FILE__)
   end
 
   def expected_output
