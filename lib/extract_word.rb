@@ -7,8 +7,7 @@ class ExtractWord
     text = File.read(file_path)
     compound_words, single_words = count_words(text)
     word_count = single_words.map(&:last).inject(:+)
-    result = build_result_text(single_words, compound_words, word_count)
-    puts result
+    build_result_text(single_words, compound_words, word_count)
   end
 
   private
