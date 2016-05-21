@@ -4,6 +4,7 @@ require_relative '../lib/extract_word'
 class ExtractWordTest < Minitest::Test
   def test_greeting
     extract_word = ExtractWord.new
+    extract_word.execute(file_path)
     assert_output(expected_output) { extract_word.execute(file_path) }
   end
 

@@ -5,13 +5,13 @@
   1 And Google
   1 Best App
   1 Best Game
+  1 Best of
   1 Best Standout Startup
   1 Best Use of Google Play Game Services
   1 Best Use of Material Design
-  1 Best of
   1 BuzzFeed News
-  1 Clash Royale
   1 Clash of Kings
+  1 Clash Royale
   1 Early Adopter
   1 Google Play
   1 Google Play’s
@@ -26,14 +26,13 @@
  11 of
   8 a
   6 apps
-  5 Google
   5 app
   5 best
   5 for
+  5 Google
   5 to
   4 that
   4 this
-  3 The
   3 also
   3 company
   3 from
@@ -41,8 +40,7 @@
   3 most
   3 on
   3 or
-  2 Google’s
-  2 Houzz
+  3 The
   2 across
   2 are
   2 at
@@ -52,11 +50,13 @@
   2 design
   2 didn’t
   2 evening
-  2 iOS
+  2 Google’s
+  2 Houzz
   2 in
   2 including
   2 innovation
   2 innovative
+  2 iOS
   2 launched
   2 like
   2 new
@@ -81,35 +81,24 @@
   1 12
   1 5
   1 65
-  1 Alphabear
-  1 Android
-  1 Apple
-  1 Apple’s
-  1 Apps
-  1 But
-  1 Colorfy
-  1 From
-  1 Hopper
-  1 Interior
-  1 It
-  1 Meanwhile
-  1 On
-  1 Robinhood
-  1 To
-  1 While
-  1 Yummly
   1 according
   1 advantage
   1 airfare
   1 all
   1 along
+  1 Alphabear
+  1 Android
   1 angles
   1 announced
+  1 Apple
+  1 Apple’s
+  1 Apps
   1 away
   1 be
   1 beating
   1 between
   1 built
+  1 But
   1 by
   1 category
   1 ceremony
@@ -117,6 +106,7 @@
   1 chooses
   1 chose
   1 chosen
+  1 Colorfy
   1 conference
   1 considered
   1 creative
@@ -141,16 +131,20 @@
   1 first-ever
   1 focused
   1 follows
+  1 From
   1 grabbed
   1 group
   1 have
+  1 Hopper
   1 huge
   1 hugely
   1 implementing
   1 installs
   1 instead
+  1 Interior
   1 investing
   1 is
+  1 It
   1 its
   1 itself
   1 job
@@ -163,6 +157,7 @@
   1 live-streamed
   1 major
   1 meant
+  1 Meanwhile
   1 millennial-focused
   1 model
   1 months
@@ -175,6 +170,7 @@
   1 now
   1 numbers
   1 obviously
+  1 On
   1 one
   1 online
   1 out
@@ -192,6 +188,7 @@
   1 reflected
   1 resource
   1 results
+  1 Robinhood
   1 rounded
   1 said
   1 selected
@@ -208,6 +205,7 @@
   1 storefront
   1 taking
   1 title
+  1 To
   1 took
   1 topping
   1 update
@@ -217,7 +215,9 @@
   1 watch
   1 week
   1 where
+  1 While
   1 win
   1 winners
   1 won
   1 world
+  1 Yummly

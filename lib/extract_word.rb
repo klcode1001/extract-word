@@ -30,7 +30,8 @@ class ExtractWord
 
   def output_words(count_table, header)
     puts "#{header}------------------------------------------------------------------"
-    count_table.sort_by{|_, v| [-v, _]}.each do |word, count|
+    sorted_table = count_table.sort_by { |word, count| [-count, word.downcase] }
+    sorted_table.each do |word, count|
       puts "%3d %s" % [count, word]
     end
   end
