@@ -3,7 +3,7 @@ require_relative '../lib/extract_word'
 
 class ExtractWordTest < Minitest::Test
   def test_execute
-    assert_equal expected_text.strip, ExtractWord.execute(input_file_path)
+    assert_equal expected_text, ExtractWord.execute(input_file_path)
   end
 
   private
@@ -14,6 +14,6 @@ class ExtractWordTest < Minitest::Test
 
   def expected_text
     file_path = File.expand_path('../expected_output.txt', __FILE__)
-    File.read(file_path)
+    File.read(file_path).strip
   end
 end

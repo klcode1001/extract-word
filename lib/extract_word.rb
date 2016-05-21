@@ -29,19 +29,17 @@ class ExtractWord
   end
 
   def build_result_text(single_words, compound_words, word_count)
-    lines = []
-    lines << "単語数（熟語以外）：#{word_count}"
-    lines << build_words_text(compound_words, '英熟語？')
-    lines << build_words_text(single_words, '英単語')
-    lines.join("\n")
+    [
+      "単語数（熟語以外）：#{word_count}",
+      build_words_text('英熟語？', compound_words),
+      build_words_text('英単語', single_words)
+    ].join("\n")
   end
 
-  def build_words_text(count_table, header)
-    lines = []
-    lines << "#{header}#{'-' * 66}"
-    count_table.each do |word, count|
-      lines << '%3d %s' % [count, word]
-    end
-    lines.join("\n")
+  def build_words_text(header, count_table)
+    [
+      "#{header}#{'-' * 66}",
+      *count_table.map { |word, count| '%3d %s' % [count, word] }
+    ].join("\n")
   end
 end
