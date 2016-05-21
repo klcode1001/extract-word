@@ -19,6 +19,7 @@ class ExtractWord
     compound_words = /[A-Z]#{word_char}*(?:\sof|\s[A-Z]#{word_char}*)+/
     # 英単語を検索する
     words = /#{word_char}+/
+    # 複合語が優先的に検索されるように正規表現を結合する
     regex = Regexp.union(compound_words, words)
     text.scan(regex).each_with_object(Hash.new(0)) do |word, count_table|
       count_table[word] += 1
