@@ -6,7 +6,9 @@ class ExtractWord
   def execute(file_path)
     text = File.read(file_path)
     compound_words, single_words = count_words(text)
-    output_result(single_words, compound_words)
+    word_count = single_words.map(&:last).inject(:+)
+    result = build_result_text(single_words, compound_words, word_count)
+    puts result
   end
 
   private
@@ -27,17 +29,20 @@ class ExtractWord
       .partition { |word, _| word.include?(' ') }
   end
 
-  def output_result(single_words, compound_words)
-    word_count = single_words.map(&:last).inject(:+)
-    puts "単語数（熟語以外）：#{word_count}"
-    output_words(compound_words, '英熟語？')
-    output_words(single_words, '英単語')
+  def build_result_text(single_words, compound_words, word_count)
+    lines = []
+    lines << "単語数（熟語以外）：#{word_count}"
+    lines << build_words_text(compound_words, '英熟語？')
+    lines << build_words_text(single_words, '英単語')
+    lines.join("\n")
   end
 
-  def output_words(count_table, header)
-    puts "#{header}------------------------------------------------------------------"
+  def build_words_text(count_table, header)
+    lines = []
+    lines << "#{header}#{'-' * 66}"
     count_table.each do |word, count|
-      puts '%3d %s' % [count, word]
+      lines << '%3d %s' % [count, word]
     end
+    lines.join("\n")
   end
 end
